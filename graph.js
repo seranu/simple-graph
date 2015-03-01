@@ -116,20 +116,21 @@ function Graph(graphName) {
 	}
 
 	this.neighbours = function(nodeName) {
-		var result = false;
 		if( _self._nodes === undefined ){
 			return;
 		}
-		var node = _self.nodes[nodeName];
+		var node = _self._nodes[nodeName];
 		if (node != undefined) {
-			var text = ''
+			var text = '', result = '';
 			node.visitNeighbours(function(element) {
 				text += element._name + ', ';
 			});
-			console.log(nodeName + ' : [' + text.substring(0, text.length - 2) + ']');
-			result = true;
+			result = nodeName + ' : [' + text.substring(0, text.length - 2) + ']';
+			//console.log(result);
+			return result;
+		} else {
+			return '';
 		}
-		return result;
 	}
 
 	this.nodes = function() {

@@ -46,6 +46,9 @@ function TestAdjacent(){
 	if( !g.adjacent('1', '2') ){
 		return 'FAIL';
 	}
+	if(g.neighbours('1') !== '1 : [2, 3]'){
+		return 'FAIL';
+	}
 
 	return 'PASS';
 }
